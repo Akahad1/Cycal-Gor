@@ -1,6 +1,4 @@
-import React from 'react';
-import Navber1 from './Navber/Navber1';
-import Navber2 from './Navber/Navber2';
+import React from 'react'
 import Banner1 from './Banner1/Banner1';
 
 const Home = () => {
