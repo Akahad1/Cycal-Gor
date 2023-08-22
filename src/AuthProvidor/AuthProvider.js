@@ -1,19 +1,57 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createContext } from 'react';
-import { GoogleAuthProvider, getAuth } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 
-
-// const auth =getAuth()
+import app from '../firebase.config';
+const auth =getAuth(app)
 export const AuthContext=createContext()
-// const provider = new GoogleAuthProvider();
+const provider = new GoogleAuthProvider();
 const AuthProvider = ({children}) => {
-    const [user,setUser]=useState()
+    const [user,setUser]=useState('')
+
+    // Loginwithgoogle
+    const loginwithgoogle =()=>{
+      return signInWithPopup(auth, provider)
+
+    }
+
+     // create Eamil password
+     const createEamilPassword=(email,password)=>{
+      return createUserWithEmailAndPassword(auth, email, password)
+
+  }
+    // LogIN
+
+    const login=(email,password)=>{
+      return signInWithEmailAndPassword(auth,email,password)
+
+    }
+    // logout
+    const logOut=()=>{
+      return signOut(auth)
+    }
+
+    // abserver
+
+    useEffect(()=>{
+      const unSubcriber=onAuthStateChanged(auth,(currentUser)=>{
+        setUser(currentUser)
+        console.log(currentUser)
+      })
+      return ()=> unSubcriber
+    })
+
+
     const authInfo={
         user,
+        loginwithgoogle,
+        createEamilPassword,
+        login,
+        logOut,
 
     }
     return (
-      <AuthContext.Provider value={{sahad:'sahad'}}>
+      <AuthContext.Provider value={authInfo}>
         {children}
 
       </AuthContext.Provider>

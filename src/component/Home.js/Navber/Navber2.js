@@ -3,6 +3,15 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvidor/AuthProvider';
 
 const Navber2 = () => {
+  const {user,logOut}=useContext(AuthContext)
+
+  const logOuthander=()=>{
+    logOut()
+    .then(()=>{})
+    .then(error=>console.log(error))
+
+  }
+
   
     return (
         <div>
@@ -35,10 +44,15 @@ const Navber2 = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <Link to='/singup' className='text-xl  text-white'>Sing Up</Link>
-    <Link className='ml-5 mr-5 text-xl  text-white'>Log in</Link>
-
     
+
+    {user?.uid?<button className='text-xl  text-white' onClick={logOuthander}>Log Out</button>
+    :
+    <>
+    <Link to='/singup' className='text-xl  text-white'>Sing Up</Link>
+    <Link to='/login' className='ml-5 mr-5 text-xl  text-white'>Log in</Link>
+    </>
+    }
   
    
   </div>
