@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvidor/AuthProvider';
 const Singup = () => {
-  const {loginwithgoogle,createEamilPassword}=useContext(AuthContext)
+  const {loginwithgoogle,updataData,createEamilPassword}=useContext(AuthContext)
 
 
   const singUpinPassword=(event)=>{
@@ -18,20 +18,36 @@ const Singup = () => {
     const number=form.number.value
     
     const password =form.password.value;
+    
     console.log(name,email,number,password)
     createEamilPassword(email,password)
     .then(result=>{
       const user=result.user;
       console.log(user)
+      console.log(name,number)
+      form.reset()
+      
+      profileupdate(name,number)
+      
     })
     .catch(error=>{console.log(error)
       const message =error.message;
     })
 
-
-    
-
   }
+  const profileupdate=(name,number)=>{
+    const profile={
+      displayName:name,
+      phoneNumber:number
+    }
+    updataData(profile)
+    .then(result=>{
+      const user =result.user
+      console.log(user)
+    })
+    .catch(error=>console.error("error",error))
+  }
+
   
 
   const googleLogInhanle=(event)=>{

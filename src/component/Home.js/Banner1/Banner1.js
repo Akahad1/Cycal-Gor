@@ -2,8 +2,8 @@ import React from 'react';
 
 const Banner1 = () => {
     return (
-        <div>
-            <div className="hero lg:min-h-[60vh] md:min-h-[60vh] mt-1" style={{backgroundImage: 'url(https://www.rei.com/dam/morgan_102919_0155_gears_shifting_hero_lg.jpg?t=ea16by9xs)'}}>
+        <div className=''>
+            <div className="hero lg:min-h-[80vh] md:min-h-[50vh]  " style={{backgroundImage: 'url(https://www.rei.com/dam/morgan_102919_0155_gears_shifting_hero_lg.jpg?t=ea16by9xs)'}}>
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content text-center text-neutral-content">
     <div className="max-w-md">

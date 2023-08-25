@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Navber1 = () => {
     return (
         <div>
-            <div className="navbar bg-black">
+            <div className="navbar bg-slate-900">
   <div className="navbar-start">
    
     
