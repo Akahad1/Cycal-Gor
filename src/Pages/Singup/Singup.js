@@ -3,11 +3,18 @@ import { RxAvatar, } from 'react-icons/rx';
 import { AiOutlineMail,AiFillPhone, } from 'react-icons/ai';
 import { RiLockPasswordLine } from 'react-icons/ri';
 import { FaGoogle ,FaFacebook} from 'react-icons/fa';
+import { MdAddAPhoto} from 'react-icons/md';
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../AuthProvidor/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
+
+
+
 const Singup = () => {
   const {loginwithgoogle,updataData,createEamilPassword}=useContext(AuthContext)
+
+  const [error,setError]=useState('')
 
 
   const singUpinPassword=(event)=>{
@@ -15,7 +22,8 @@ const Singup = () => {
     const form =event.target
     const name =form.name.value
     const email =form.email.value;
-    const number=form.number.value
+    const number=form.number.value;
+    const photourl=form.photourl.value;
     
     const password =form.password.value;
     
@@ -24,28 +32,36 @@ const Singup = () => {
     .then(result=>{
       const user=result.user;
       console.log(user)
-      console.log(name,number)
-      form.reset()
+      console.log(name,number,photourl)
       
-      profileupdate(name,number)
+      form.reset()
+      toast.success('You Sing Up Successfully');
+      <Toaster/>
+      
+      profileupdate(name,photourl,number)
       
     })
     .catch(error=>{console.log(error)
       const message =error.message;
+      setError(message)
     })
 
   }
-  const profileupdate=(name,number)=>{
+  const profileupdate=(name,photourl,number)=>{
     const profile={
       displayName:name,
-      phoneNumber:number
+      phoneNumber:number,
+      photoURL:photourl,
     }
     updataData(profile)
     .then(result=>{
       const user =result.user
       console.log(user)
     })
-    .catch(error=>console.error("error",error))
+    .catch(error=>{console.error("error",error)
+    const message=error.message;
+      setError(message)
+  })
   }
 
   
@@ -56,9 +72,14 @@ const Singup = () => {
     .then(result=>{
       const user=result.user;
       // setCreateUserEmail(user.email)
+      toast.success('You Sing Up Successfully');
+      <Toaster/>
       console.log(user)
     })
-    .catch(error=>console.log(error))
+    .catch(error=>{console.log(error)
+      const message=error.message;
+      setError(message)
+    })
   }
 
 
@@ -80,7 +101,7 @@ const Singup = () => {
        <label className="label">
          <span className="label-text text-white"><RxAvatar className='inline text-2xl mr-2 rounded '/> Full Name</span>
        </label>
-       <input type="name" name='name' placeholder='Full Name' className="input input-bordered bg-fuchsia-800 text-white" />
+       <input type="name" name='name' placeholder='Full Name' className="input input-bordered bg-fuchsia-800 text-white" required />
      </div>
      {/* 2 */}
 
@@ -88,9 +109,16 @@ const Singup = () => {
        <label className="label">
          <span className="label-text text-white"> <AiOutlineMail className='inline text-2xl mr-2 rounded '/>Email</span>
        </label>
-       <input type="email" name='email' placeholder="email" className="input input-bordered bg-fuchsia-800 text-white" />
+       <input type="email" name='email' placeholder="email" className="input input-bordered bg-fuchsia-800 text-white" required />
      </div>
      {/* 3 */}
+     <div className="form-control">
+       <label className="label">
+         <span className="label-text text-white"> <MdAddAPhoto className='inline text-2xl mr-2 rounded '/>Photo Url</span>
+       </label>
+       <input type="text" name='photourl' placeholder="email" className="input input-bordered bg-fuchsia-800 text-white"  required/>
+     </div>
+     {/* 4 */}
 
      <div className="form-control">
        <label className="label">
@@ -103,15 +131,19 @@ const Singup = () => {
        <label className="label">
          <span className="label-text text-white "><RiLockPasswordLine className='inline text-2xl mr-2 rounded '/>Password</span>
        </label>
-       <input type="password" name='password' placeholder="password" className="input input-bordered bg-fuchsia-800 text-white" />
+       <input type="password" name='password' placeholder="password" className="input input-bordered bg-fuchsia-800 text-white" required />
        <label className="label">
          <span className="label-text-alt text-white"> You already singup plese <Link to='/login' className=''>Log in</Link></span>
+       </label>
+       <label className="label">
+         <span className="label-text-alt text-gray-300 ">{error} </span>
        </label>
      </div>
      <div className='    '>
      <button onClick={googleLogInhanle} className="btn   md:ml-24  lg:ml-8 md:ml btn-primary "><FaGoogle className='inline mr-2 text-xl'/>Continue with Google</button>
 
      <div className="divider lg:hidden   text-white">OR</div>
+     
 
      <button  className="btn  md:ml-24 btn-primary text-white lg:ml-32"><FaFacebook className='inline  text-white mr-3 text-xl'/>Continue with Facebook </button>
      </div>

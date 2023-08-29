@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { AiFillPhone, AiOutlineMail } from 'react-icons/ai';
 import { RiLockPasswordLine } from 'react-icons/ri';
-import { RxAvatar } from 'react-icons/rx';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvidor/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
 
 const LogIn = () => {
     const {login}=useContext(AuthContext)
@@ -17,6 +17,8 @@ const LogIn = () => {
         login(email,password)
         .then(result=>{
             const user=result.user;
+            toast.success('Your Log in Successfully');
+            <Toaster/>
             console.log(user)
         })
         .catch(error=>{console.log(error)

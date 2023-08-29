@@ -25,6 +25,7 @@ const Navber2 = () => {
         <li><Link to='/' >Home</Link></li>
         <li><Link>Blogs</Link></li>
         <li><Link>Contact Us</Link></li>
+        <li><Link to='/buy/myCart'>MY Cart</Link></li>
       
         
       </ul>
@@ -40,6 +41,7 @@ const Navber2 = () => {
     <li><Link to='/' className='text-xl text-white'>Home</Link></li>
         <li><Link className='text-xl  text-white'>Blogs</Link></li>
         <li><Link className='text-xl text-white'> Contact Us</Link></li>
+        <li><Link className='text-xl text-white' to='/buy/myCart'>MY Cart</Link></li>
         
     </ul>
   </div>
