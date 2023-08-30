@@ -13,20 +13,23 @@ import { AuthContext } from '../../AuthProvidor/AuthProvider';
 import Loading from '../../Hook/Loading';
 import Relatedproduct from '../Relatedproduct/Relatedproduct';
 import { Toaster, toast } from 'react-hot-toast';
+import useTitel from '../../Hook/useTitel';
+
 
 
 
 
 const SpecificBike = () => {
   
-  
+  const {user}=useContext(AuthContext)
     
     const {_id,name,price,img,ratings,category}=useLoaderData()
     
     const [togol,settogol]=useState('none')
     const [reviews,setReviws]=useState([])
     const[AllrelatedProducts,setRelatedProducts]=useState([])
-    
+    const notify = () => toast('Here is your toast.');
+    // useTitel('SpecificBike')
     
     useEffect(()=>{
       fetch(`http://localhost:5000/products?bike=${category}`)
@@ -50,6 +53,7 @@ const SpecificBike = () => {
       category,
       price,
       ratings,
+      email:user?.email,
       
 
 
@@ -70,7 +74,7 @@ const SpecificBike = () => {
             if(data.acknowledged){
                
                
-              toast.success('Successfully Review add');
+              toast.success('Successfully add Product in Cart ');
                <Toaster/>
                
             }
@@ -85,6 +89,7 @@ const SpecificBike = () => {
     }
   const numberOfIndexes =reviews.length;
   const id=`/buy/${_id}`
+  
     return (
         <div>
             
@@ -138,6 +143,8 @@ const SpecificBike = () => {
       <Link to={id}><button  className='btn bg-yellow-500 rounded ml-3'>Buy Now</button></Link>
       
     </div>
+    <button onClick={notify}></button>
+      <Toaster />
      
       
    </div>

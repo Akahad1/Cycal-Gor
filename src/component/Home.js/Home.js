@@ -1,17 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Banner1 from './Banner1/Banner1';
 
 import Product from './AllProduct/Product';
 import { Link } from 'react-router-dom';
+import useTitel from '../../Hook/useTitel';
+import { AuthContext } from '../../AuthProvidor/AuthProvider';
 
 const Home = () => {
+    const {search}=useContext(AuthContext)
     const [products,setProducts]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/product')
+        fetch(`http://localhost:5000/product?search=${search}`)
         .then(res=>res.json())
         .then(data=>setProducts(data))
-    },[])
+    },[search])
     // console.log(products)
+    useTitel("Home")
     return (
         <div>
             <Banner1></Banner1>

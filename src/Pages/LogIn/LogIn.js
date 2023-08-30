@@ -5,8 +5,11 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvidor/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 
+import useTitel from '../../Hook/useTitel';
+
 const LogIn = () => {
     const {login}=useContext(AuthContext)
+    useTitel("Log In")
 
     const loginhander=(event)=>{
         event.preventDefault()

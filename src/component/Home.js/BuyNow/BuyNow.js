@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import OderModer from '../../OderModer/OderModer';
+import useTitel from '../../../Hook/useTitel';
 
 const BuyNow = () => {
     const {_id,name,img,category,price}=useLoaderData()
+    useTitel("Buy Product")
 
     const [quantity,setQuantity]=useState(1)
     const Increment=()=>{
@@ -91,7 +94,16 @@ const BuyNow = () => {
                 <p className='mb-6 text-xl'>Total<span className='text-xl ml-[8rem]'>
                   <span className='text-xl'>৳</span >{Total}</span></p>
 
-                 <Link> <button className='btn btn-primary w-10/12 ml-4 mt-3 mb-5' >CHECKOUT</button></Link>
+                
+                 
+                 <label htmlFor="my_modal_6" className="btn btn-primary w-10/12 ml-4 mt-3 mb-5">CHECKOUT</label>
+                </div>
+                <div>
+                  <OderModer
+                  Subtotal={Subtotal}
+                  DeliveryFree={DeliveryFree}
+                  Total={Total}
+                  ></OderModer>
                 </div>
                
              </div>

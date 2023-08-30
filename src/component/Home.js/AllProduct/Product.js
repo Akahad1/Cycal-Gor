@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 const Product = ({products}) => {
+  
     const {_id,name,img,category,price}=products
     const id=`/buy/${_id}`
    

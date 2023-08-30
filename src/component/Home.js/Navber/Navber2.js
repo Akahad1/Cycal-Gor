@@ -32,7 +32,7 @@ const Navber2 = () => {
     </div>
     <div className="avatar lg:flex md:flex  hidden">
   <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-    <img alt='' src="/public/images/Logo.png" />
+    <img alt='' src="https://i.ibb.co/0r3MJc5/android-chrome-192x192.png" />
   </div>
 </div>
   </div>

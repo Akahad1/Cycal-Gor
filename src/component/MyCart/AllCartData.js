@@ -2,11 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
+import { Toaster, toast } from 'react-hot-toast';
 
 const AllCartData = ({cartData,deletItem}) => {
     const {_id,productId,name,img,category,price,ratings}=cartData
     const id=`/buy/${productId}`
     console.log(_id)
+    const notify = () => toast('Here is your toast.');
     
     return (
         <div className='mt-10 mb-10'>
@@ -21,6 +23,8 @@ const AllCartData = ({cartData,deletItem}) => {
     <div className="card-actions justify-end mt-5">
     <button onClick={()=>deletItem(_id)} className="btn btn-primary mr-10">Delete Cart</button>
       <Link to={id}><button className="btn btn-primary">Buy Now</button></Link>
+      <button onClick={notify}></button>
+      <Toaster />
 
     </div>
   </div>

@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Bikes from './Bikes';
 import { Link, useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../../AuthProvidor/AuthProvider';
 
 const AllProduct = () => {
+    const {search,setSearch}=useContext(AuthContext)
     const [bikes,setbikes]=useState([])
-    
     const [currentPage,setCurrentPages]=useState()
     const [itemParPage,SetitemPerPage]=useState(5)
     const [specificBike,SetSpecificBike]=useState([])
     const {totalproducts}=useLoaderData()
     useEffect(()=>{
-        fetch(`http://localhost:5000/products?page=${currentPage}&limit=${itemParPage}&bike=${specificBike}`)
+        fetch(`http://localhost:5000/products?page=${currentPage}&limit=${itemParPage}&bike=${specificBike}&search=${search}`)
         .then(res=>res.json())
         .then(data=>setbikes(data))
 
-    },[currentPage,itemParPage,specificBike])
+    },[currentPage,itemParPage,specificBike,search])
     
 
    

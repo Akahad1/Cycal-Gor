@@ -9,12 +9,15 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../AuthProvidor/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 
+import useTitel from '../../Hook/useTitel';
+
 
 
 const Singup = () => {
   const {loginwithgoogle,updataData,createEamilPassword}=useContext(AuthContext)
 
   const [error,setError]=useState('')
+  useTitel("Sing Up")
 
 
   const singUpinPassword=(event)=>{
