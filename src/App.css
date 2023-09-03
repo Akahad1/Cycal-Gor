@@ -15,7 +15,11 @@
 .font-signature{
   font-family: Great Vibes;
 }
-
+.font-style{
+  font-family: 'Great Vibes', cursive;
+font-family: 'Playfair Display', serif;
+font-family: 'Poppins', sans-serif;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

@@ -19,9 +19,9 @@ const Home = () => {
     return (
         <div>
             <Banner1></Banner1>
-            <div className='mt-32 mb-8'>
-                <span className='text-2xl flex justify-center'>Our Products</span>
-                <span className='flex justify-center'>Our website has products from various companies.</span>
+            <div className='mt-32 mb-16'>
+                <span className='text-3xl flex justify-center font-style  text-primary'>Our Products</span>
+                <span className='flex text-primary font-style mt-3 justify-center'>Our website has products from various companies.</span>
             </div >
            
            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:ml-16 md:ml-2  '>

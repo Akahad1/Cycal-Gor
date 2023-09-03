@@ -8,12 +8,15 @@ import MyCart from "../component/MyCart/MyCart";
 import SpecificBike from "../component/SpecificBike/SpecificBike";
 import BuyLayout from "../Main/BuyLayout";
 import BuyNow from "../component/Home.js/BuyNow/BuyNow";
+import Blogs from "../component/Home.js/Blogs/Blogs";
+
 
 
 const router=createBrowserRouter([
     {path:'/',element:<Main></Main>,
     children:[
         {path:'/',element:<Home></Home>},
+        {path:'/blog',element:<Blogs></Blogs>},
         {path:'/singup',element:<Singup></Singup>},
         {path:'/login',element:<LogIn></LogIn>},
         {path:"/allproduct",element:<AllProduct></AllProduct>,

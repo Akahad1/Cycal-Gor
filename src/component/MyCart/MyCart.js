@@ -6,14 +6,17 @@ import { AuthContext } from '../../AuthProvidor/AuthProvider';
 import useTitel from '../../Hook/useTitel';
 
 const MyCart = () => {
-    const {user}=useContext(AuthContext)
+    const {user,setCartSup}=useContext(AuthContext)
     const[cartProduct,setProduct]=useState([])
     useTitel('My Cart')
     
     useEffect(()=>{
         fetch(`http://localhost:5000/addCart?email=${user?.email}`)
         .then(res=>res.json())
-        .then(data=>setProduct(data))
+        .then(data=>{setProduct(data)
+          
+
+        })
     },[user?.email])
 
     const deletItem=(id)=>{
@@ -32,21 +35,24 @@ const MyCart = () => {
           
           const remainig =cartProduct.filter(odr=> odr._id !== id)
           setProduct(remainig)
+          setCartSup(remainig.length)
         }
       })
 
       
     }
     }
+    setCartSup(cartProduct.length)
+
     return (
-        <div>
-             <p className='text-2xl mt-10 text-center mb-10'>My Cart Products</p>
+        <div className='min-h-screen'>
+             <p className='text-2xl mt-10 text-center mb-10 font-style'>My Cart Products</p>
             {cartProduct.length>0?<>{
               cartProduct.map(cartData=><AllCartData cartData={cartData}
                   key={cartData._id}
                   deletItem={deletItem}
               ></AllCartData>)
-          }</>:<p className='text-2xl text-center mt-10 vh-10'>  Your No Product Available In This Cart</p>}
+          }</>:<p className='text-2xl text-center mt-10 font-style'>  Your No Product Available In This Cart</p>}
             
         </div>
     );

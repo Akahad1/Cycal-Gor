@@ -6,7 +6,7 @@ import { AuthContext } from '../../../AuthProvidor/AuthProvider';
 const AllProduct = () => {
     const {search,setSearch}=useContext(AuthContext)
     const [bikes,setbikes]=useState([])
-    const [currentPage,setCurrentPages]=useState()
+    const [currentPage,setCurrentPages]=useState(0)
     const [itemParPage,SetitemPerPage]=useState(5)
     const [specificBike,SetSpecificBike]=useState([])
     const {totalproducts}=useLoaderData()
@@ -36,17 +36,17 @@ const AllProduct = () => {
 
     return (
         <div>
-            <h1 className='text-center text-4xl mt-12 mb-7  '>Here are all the products</h1>
+            <h1 className='text-center text-4xl mt-12 mb-7 font-style '>Here are all the products</h1>
             <div className=''>
             <div className=' text-center mb-20 '>
                
-               <a href="/allproduct" className='text-xl'  >All Bikes</a>
+               <a href="/allproduct" className='text-xl font-style '  >All Bikes</a>
 
-               <span className={specificBike==="Kids Bike"?'ml-3 text-xl  p-2 bg-orange-600 rounded': 'ml-3 text-xl'} onClick={()=>SetSpecificBike('Kids Bike')}>Kids Bike</span>
+               <span className={specificBike==="Kids Bike"?'ml-3 font-style text-xl  p-2 bg-orange-600 rounded': 'ml-3 font-style text-xl'} onClick={()=>SetSpecificBike('Kids Bike')}>Kids Bike</span>
 
-               <span className={specificBike==="Ladis Bikes"?'ml-3 text-xl  p-2 bg-orange-600 rounded': 'ml-3 text-xl'}onClick={()=>SetSpecificBike('Ladis Bikes')}> Ladis Bikes</span>
+               <span className={specificBike==="Ladis Bikes"?'ml-3 font-style text-xl  p-2 bg-orange-600 rounded': 'ml-3 font-style text-xl'}onClick={()=>SetSpecificBike('Ladis Bikes')}> Ladis Bikes</span>
 
-               <span className={specificBike==="Mountain Bike"?'ml-3 text-xl  p-2 bg-orange-600 rounded': 'ml-3 text-xl'}onClick={()=>SetSpecificBike('Mountain Bike')}>Mountain Bike</span>
+               <span className={specificBike==="Mountain Bike"?'ml-3 font-style text-xl  p-2 bg-orange-600 rounded': 'ml-3 font-style text-xl'}onClick={()=>SetSpecificBike('Mountain Bike')}>Mountain Bike</span>
            </div>
             </div>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:ml-16 md:ml-2'>
@@ -60,7 +60,7 @@ const AllProduct = () => {
            
         
             <div className=' text-center'>
-            <h1 className='mb-9'>Current Pages {currentPage}</h1>
+            <h1 className='mb-9 text-primary font-style'>Current Pages {currentPage}</h1>
 
             
             {pageNumber.map(number=><button  className='btn mr-3 mb-3'
@@ -68,10 +68,10 @@ const AllProduct = () => {
              key={number}>{number}</button>)}
             
 
-             <select value={itemParPage}
+             <select className='btn' value={itemParPage}
             onChange={HandelSelcteChang}
             >
-            {options.map(option=><option key={option} value={option}>
+            {options.map(option=><option  key={option} value={option}>
                 {option}
             </option>)}
             

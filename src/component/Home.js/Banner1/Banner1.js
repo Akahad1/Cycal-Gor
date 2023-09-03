@@ -7,9 +7,9 @@ const Banner1 = () => {
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content text-center text-neutral-content">
     <div className="max-w-md">
-      <h1 className="mb-5 text-5xl font-bold">Cycle Gor</h1>
-      <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-      <button className="btn ">Visit our shop</button>
+      <h1 className="mb-5 text-5xl font-bold font-style">Cycle Gor</h1>
+      <p className="mb-5 font-style">Cycle Gor like a great platform for buying and selling bicycles of various types.Whether you're a casual rider or a cycling enthusiast, Cycle Ghar provides a convenient space to find the perfect bicycle that suits your needs.</p>
+      
     </div>
   </div>
 </div>

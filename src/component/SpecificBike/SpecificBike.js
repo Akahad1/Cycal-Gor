@@ -117,7 +117,7 @@ const SpecificBike = () => {
    
     <div className="flex ml-10 lg:mt-[-3rem] md:ml-10 lg:justify-end  md:justify-center">
    <div>
-   <h2 className='text-2xl'>{name}</h2>
+   <h2 className='text-2xl font-style'>{name}</h2>
    <p className='mt-3 text-blue-400  mb-4 text-xl'>{price}</p>
    <p className=' mb-1'>Avarage Rating</p>
     <div >
@@ -127,7 +127,7 @@ const SpecificBike = () => {
     
     </div>
     <div className="divider "></div> 
-    <p className='text-blue-400 mt-3 text-xl mb-4'>{category}</p>
+    <p className='text-blue-400 font-style mt-3 text-xl mb-4'>{category}</p>
 
     
     <p>Inclusive of all taxes</p>
@@ -156,9 +156,9 @@ const SpecificBike = () => {
 </div>
             <div className=" divider "></div> 
             <div className='flex mb-10 justify-center'>
-            <p className={togol==='none'?'text-2xl mr-4 underline':'text-2xl mr-4 '} onClick={()=>settogol('none')} >Reviews ({numberOfIndexes})  </p>
+            <p className={togol==='none'?'text-2xl font-style mr-4 underline':'text-2xl font-style mr-4 '} onClick={()=>settogol('none')} >Reviews ({numberOfIndexes})  </p>
 
-            <p className={togol==='clicked'?'text-2xl mr-4 underline':'text-2xl mr-4 '}onClick={()=>settogol('clicked')}>Related products</p>
+            <p className={togol==='clicked'?'text-2xl mr-4 font-style underline':'text-2xl font-style mr-4 '}onClick={()=>settogol('clicked')}>Related products</p>
 
             </div>
               <div className={togol==='clicked'?"hidden":""}>

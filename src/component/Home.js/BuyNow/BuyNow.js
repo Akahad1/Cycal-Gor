@@ -23,7 +23,7 @@ const BuyNow = () => {
     return (
         <div className='mt-10 mb-10'>
            <div  className=' ml-7 mr-7 mt-3 p-6 bg-slate-700'>
-            <p className=' ml-5 text-xl text-white'>Order your preferred {name}</p>
+            <p className=' ml-5 text-xl text-white font-style'>Order your preferred {name}</p>
              </div>
              <div className='lg:flex lg:justify-evenly' >
              <div className='lg:w-2/3 mt-5'>
@@ -86,13 +86,13 @@ const BuyNow = () => {
 
              <div className='border pt-10 lg:w-3/12 lg:ml-0 md:ml-[13rem] md:mt-10  md:w-3/6 mt-10 ml-10 mr-10 pl-4 pr-4 lg:mt-5'>
                 <div>
-                <p className='mb-6'>Subtotal <span className='ml-24'>
+                <p className='mb-6 font-style'>Subtotal <span className='ml-24'>
                   <span className='text-xl'>৳</span>{Subtotal}</span></p>
 
-                <p className='mb-6'>Shipping<span className='ml-24'> Shipping to Dhaka.</span> </p>
-                <p className='mb-6'>Delivery Fee<span className='ml-[5rem]'><span className='text-xl'>৳</span>{DeliveryFree}</span></p>
-                <p className='mb-6 text-xl'>Total<span className='text-xl ml-[8rem]'>
-                  <span className='text-xl'>৳</span >{Total}</span></p>
+                <p className='mb-6 font-style'>Shipping<span className='ml-24 font-style'> Shipping to Dhaka.</span> </p>
+                <p className='mb-6 font-style'>Delivery Fee<span className='ml-[5rem] '><span className='text-xl'>৳</span>{DeliveryFree}</span></p>
+                <p className='mb-6 text-xl font-style'>Total<span className='text-xl ml-[8rem]'>
+                  <span className=''>৳</span >{Total}</span></p>
 
                 
                  

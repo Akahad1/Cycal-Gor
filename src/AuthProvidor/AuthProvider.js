@@ -10,6 +10,7 @@ const AuthProvider = ({children}) => {
     const [user,setUser]=useState('')
     const [loading,setLoading]=useState(true)
     const [search,setSearch]=useState('')
+    const [cartSup,setCartSup]=useState(0)
     // Loginwithgoogle
     const loginwithgoogle =()=>{
       return signInWithPopup(auth, provider)
@@ -58,7 +59,9 @@ const AuthProvider = ({children}) => {
         updataData,
         loading,
         search,
-       setSearch
+       setSearch,
+       cartSup,
+       setCartSup,
 
 
     }

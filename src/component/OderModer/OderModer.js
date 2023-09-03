@@ -35,7 +35,7 @@ const OderModer = ({Subtotal,DeliveryFree,Total}) => {
             headers:{
                 "content-type" : 'application/json'
             },
-            body: JSON.stringify(OderData)
+            body: JSON.stringify(OrderDetails)
             
         })
         .then(res=>res.json())
