@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AiFillPhone, AiOutlineMail } from 'react-icons/ai';
 import { RiLockPasswordLine } from 'react-icons/ri';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvidor/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -10,6 +10,9 @@ import useTitel from '../../Hook/useTitel';
 const LogIn = () => {
     const {login}=useContext(AuthContext)
     useTitel("Log In")
+    const location=useLocation()
+    const navigate=useNavigate()
+    const from=location.state?.from?.pathname || '/'
 
     const loginhander=(event)=>{
         event.preventDefault()
@@ -23,6 +26,7 @@ const LogIn = () => {
             toast.success('Your Log in Successfully');
             <Toaster/>
             console.log(user)
+            navigate(from,{replace:true})
         })
         .catch(error=>{console.log(error)
             const message=error.message

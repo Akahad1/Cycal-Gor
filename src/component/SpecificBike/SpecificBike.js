@@ -139,7 +139,7 @@ const SpecificBike = () => {
       <Link className='mr-2'><AiOutlineTwitter className='h-5 mt-1'/></Link>
     </div>
     <div className='mt-10'>
-      <button onClick={dataAddCart} className='btn bg-yellow-500'>Add to Cart</button>
+      {user?.uid?<button onClick={dataAddCart} className='btn bg-yellow-500'>Add to Cart</button>:''}
       <Link to={id}><button  className='btn bg-yellow-500 rounded ml-3'>Buy Now</button></Link>
       
     </div>
@@ -167,7 +167,7 @@ const SpecificBike = () => {
                 setReviws={setReviws}
                 ></AddReview>
               </div>
-              <div className={togol==='none'?"hidden ":"grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 lg:ml-16 md:ml-2"}>
+              <div className={togol==='none'?"hidden ":"grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 lg:ml-16 md:ml-2 ml-5"}>
               {AllrelatedProducts.map(Rproducts=><Relatedproduct
             Rproducts={Rproducts}
             key={Rproducts._id}

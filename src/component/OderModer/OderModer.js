@@ -7,28 +7,32 @@ import { AuthContext } from '../../AuthProvidor/AuthProvider';
 import { Toaster, toast } from 'react-hot-toast';
 import useTitel from '../../Hook/useTitel';
 
-const OderModer = ({Subtotal,DeliveryFree,Total}) => {
+const OderModer = ({Subtotal,DeliveryFree,Total,name,img,category,price}) => {
     const {user}=useContext(AuthContext)
     useTitel("Confrim Order")
 
     const OderData=(event)=>{
         event.preventDefault()
      const form =event.target
-    const name =form.name.value
+    const uerName =form.name.value
     const email =form.email.value;
     const number=form.number.value;
     const District=form.District.value;
     const City=form.city.value;
     const StreetAddress=form.StreetAddress.value;
-    console.log(name,email,number,District,City,StreetAddress)
+    console.log(uerName,email,number,District,City,StreetAddress)
 
     const OrderDetails={
-        name,
+      uerName,
         email,
         number,
         City,
         District,
         StreetAddress,
+        name,
+        img,
+        category,
+        price
     }
     fetch('http://localhost:5000/order',{
             method:"POST",

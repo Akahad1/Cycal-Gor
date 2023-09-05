@@ -44,7 +44,7 @@ const Navber1 = () => {
   
      </div>
   <div className="navbar-end">
-              <Link className=' text-white font-style  lg:text-xl md:mr-4 lg:mr-7'>My Order</Link>
+              <Link to='/myorder' className=' text-white font-style  lg:text-xl md:mr-4 lg:mr-7'>My Order</Link>
   </div>
 </div>
         </div>

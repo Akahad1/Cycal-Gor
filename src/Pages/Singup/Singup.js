@@ -4,7 +4,7 @@ import { AiOutlineMail,AiFillPhone, } from 'react-icons/ai';
 import { RiLockPasswordLine } from 'react-icons/ri';
 import { FaGoogle ,FaFacebook} from 'react-icons/fa';
 import { MdAddAPhoto} from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../AuthProvidor/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
@@ -18,6 +18,9 @@ const Singup = () => {
 
   const [error,setError]=useState('')
   useTitel("Sing Up")
+  const location=useLocation()
+  const navigate=useNavigate()
+  const from=location.state?.from?.pathname || '/'
 
 
   const singUpinPassword=(event)=>{
@@ -40,8 +43,10 @@ const Singup = () => {
       form.reset()
       toast.success('You Sing Up Successfully');
       <Toaster/>
+
       
       profileupdate(name,photourl,number)
+      navigate(from,{replace:true})
       
     })
     .catch(error=>{console.log(error)
@@ -78,6 +83,7 @@ const Singup = () => {
       toast.success('You Sing Up Successfully');
       <Toaster/>
       console.log(user)
+      navigate(from,{replace:true})
     })
     .catch(error=>{console.log(error)
       const message=error.message;

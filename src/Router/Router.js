@@ -9,6 +9,8 @@ import SpecificBike from "../component/SpecificBike/SpecificBike";
 import BuyLayout from "../Main/BuyLayout";
 import BuyNow from "../component/Home.js/BuyNow/BuyNow";
 import Blogs from "../component/Home.js/Blogs/Blogs";
+import PriviteRoute from "./PriviteRoute";
+import MyOrder from "../component/Home.js/MyOrder/MyOrder";
 
 
 
@@ -22,7 +24,7 @@ const router=createBrowserRouter([
         {path:"/allproduct",element:<AllProduct></AllProduct>,
         loader: async()=>fetch('http://localhost:5000/totalproducts')
     },
-    
+    {path:'/myorder',element:<PriviteRoute><MyOrder></MyOrder></PriviteRoute>},
 
     {path:'/:id',element:<SpecificBike></SpecificBike>,
     loader: async({params})=>fetch(`http://localhost:5000/products/${params.id}`)
@@ -35,12 +37,13 @@ const router=createBrowserRouter([
 },
 {path:'/buy',element:<BuyLayout></BuyLayout>,
 children:[
-    {path:'/buy/:id',element:<BuyNow></BuyNow>,
+    {path:'/buy/:id',element:<PriviteRoute><BuyNow></BuyNow></PriviteRoute>,
     loader: async ({params})=>fetch(`http://localhost:5000/products/${params.id}`)
 },
-{path:'/buy/myCart',element:<MyCart></MyCart>,
+{path:'/buy/myCart',element:<PriviteRoute><MyCart></MyCart></PriviteRoute>},
+
     
-},
+
 ]
 }
 ,{path: '*' ,element: 'You Press Rong route'}

@@ -21,7 +21,7 @@ const BuyNow = () => {
     const DeliveryFree=parseInt((parseInt(price)/1000)*3);
     const Total=Subtotal+DeliveryFree;
     return (
-        <div className='mt-10 mb-10'>
+        <div className='mt-10 min-h-screen mb-10'>
            <div  className=' ml-7 mr-7 mt-3 p-6 bg-slate-700'>
             <p className=' ml-5 text-xl text-white font-style'>Order your preferred {name}</p>
              </div>
@@ -103,6 +103,10 @@ const BuyNow = () => {
                   Subtotal={Subtotal}
                   DeliveryFree={DeliveryFree}
                   Total={Total}
+                  category={category}
+                  price={price}
+                  name={name}
+                  img={img}
                   ></OderModer>
                 </div>
                
