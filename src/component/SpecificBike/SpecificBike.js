@@ -30,15 +30,16 @@ const SpecificBike = () => {
     const[AllrelatedProducts,setRelatedProducts]=useState([])
     const notify = () => toast('Here is your toast.');
     // useTitel('SpecificBike')
+    console.log(_id,name,price)
     
     useEffect(()=>{
-      fetch(`http://localhost:5000/products?bike=${category}`)
+      fetch(`https://cycal-server-akahad1.vercel.app/products?bike=${category}`)
       .then(res=>res.json())
       .then(data=>setRelatedProducts(data))
     },[_id ,category])
 
     useEffect(()=>{
-      fetch(`http://localhost:5000/reviews?review=${_id}`)
+      fetch(`https://cycal-server-akahad1.vercel.app/reviews?review=${_id}`)
       .then(res=>res.json())
       .then(data=>setReviws(data))
   },[_id])
@@ -60,7 +61,7 @@ const SpecificBike = () => {
     }
 
 
-    fetch('http://localhost:5000/addCart',{
+    fetch('https://cycal-server-akahad1.vercel.app/addCart',{
             method:"POST",
             headers:{
                 "content-type" : 'application/json'

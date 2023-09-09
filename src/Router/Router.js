@@ -22,15 +22,15 @@ const router=createBrowserRouter([
         {path:'/singup',element:<Singup></Singup>},
         {path:'/login',element:<LogIn></LogIn>},
         {path:"/allproduct",element:<AllProduct></AllProduct>,
-        loader: async()=>fetch('http://localhost:5000/totalproducts')
+        loader: async()=>fetch('https://cycal-server-akahad1.vercel.app/totalproducts')
     },
     {path:'/myorder',element:<PriviteRoute><MyOrder></MyOrder></PriviteRoute>},
 
     {path:'/:id',element:<SpecificBike></SpecificBike>,
-    loader: async({params})=>fetch(`http://localhost:5000/products/${params.id}`)
+    loader: async({params})=>fetch(`https://cycal-server-akahad1.vercel.app/products/${params.id}`)
 },
     {path:'/allproduct/:id',element:<SpecificBike></SpecificBike>,
-    loader: async({params})=>fetch(`http://localhost:5000/products/${params.id}`)
+    loader: async({params})=>fetch(`https://cycal-server-akahad1.vercel.app/products/${params.id}`)
 }
     
     ]
@@ -38,7 +38,7 @@ const router=createBrowserRouter([
 {path:'/buy',element:<BuyLayout></BuyLayout>,
 children:[
     {path:'/buy/:id',element:<PriviteRoute><BuyNow></BuyNow></PriviteRoute>,
-    loader: async ({params})=>fetch(`http://localhost:5000/products/${params.id}`)
+    loader: async ({params})=>fetch(`https://cycal-server-akahad1.vercel.app/products/${params.id}`)
 },
 {path:'/buy/myCart',element:<PriviteRoute><MyCart></MyCart></PriviteRoute>},
 

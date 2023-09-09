@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../AllProduct/Product.css'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../AuthProvidor/AuthProvider';
+import Loading from '../../../Hook/Loading';
 
 
 const Product = ({products}) => {
-  
+  const {loading}=useContext(AuthContext)
     const {_id,name,img,category,price}=products
     const id=`/buy/${_id}`
+
+    if(loading){
+      return<Loading></Loading>
+    }
    
     return (
         <div>

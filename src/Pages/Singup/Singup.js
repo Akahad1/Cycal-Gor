@@ -149,12 +149,12 @@ const Singup = () => {
        </label>
      </div>
      <div className='    '>
-     <button onClick={googleLogInhanle} className="btn   md:ml-24  lg:ml-8 md:ml btn-primary "><FaGoogle className='inline mr-2 text-xl'/>Continue with Google</button>
+     <button onClick={googleLogInhanle} className="btn   md:ml-24  lg:ml-8 md:ml btn-primary "><FaGoogle className='inline mr-3 text-xl'/>Continue with Google</button>
 
      <div className="divider lg:hidden   text-white">OR</div>
      
 
-     <button  className="btn  md:ml-24 btn-primary text-white lg:ml-32"><FaFacebook className='inline  text-white mr-3 text-xl'/>Continue with Facebook </button>
+     <button  className="btn  md:ml-24 btn-primary text-white lg:ml-32"><FaFacebook className='inline  text-white  text-xl'/>Continue with Facebook </button>
      </div>
      <div className="form-control mt-6">
        <button type='submit' className="btn bg-fuchsia-500 text-white">Sing Up</button>

@@ -11,7 +11,7 @@ const MyCart = () => {
     useTitel('My Cart')
     
     useEffect(()=>{
-        fetch(`http://localhost:5000/addCart?email=${user?.email}`)
+        fetch(`https://cycal-server-akahad1.vercel.app/addCart?email=${user?.email}`)
         .then(res=>res.json())
         .then(data=>{setProduct(data)
           
@@ -22,7 +22,7 @@ const MyCart = () => {
     const deletItem=(id)=>{
         const prossed =window.confirm("Are you sure, cancel this oder")
       if(prossed){
-        fetch(`http://localhost:5000/addCart/${id}`,{
+        fetch(`https://cycal-server-akahad1.vercel.app/addCart/${id}`,{
         method: "DELETE",
       })
       .then(res=>res.json())

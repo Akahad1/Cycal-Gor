@@ -2,16 +2,18 @@ import React, { useContext, useEffect, useState } from 'react';
 import Bikes from './Bikes';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvidor/AuthProvider';
+import Loading from '../../../Hook/Loading';
 
 const AllProduct = () => {
-    const {search,setSearch}=useContext(AuthContext)
+    const {search,setSearch,loading}=useContext(AuthContext)
     const [bikes,setbikes]=useState([])
     const [currentPage,setCurrentPages]=useState(0)
     const [itemParPage,SetitemPerPage]=useState(5)
     const [specificBike,SetSpecificBike]=useState([])
     const {totalproducts}=useLoaderData()
+   
     useEffect(()=>{
-        fetch(`http://localhost:5000/products?page=${currentPage}&limit=${itemParPage}&bike=${specificBike}&search=${search}`)
+        fetch(`https://cycal-server-akahad1.vercel.app/products?page=${currentPage}&limit=${itemParPage}&bike=${specificBike}&search=${search}`)
         .then(res=>res.json())
         .then(data=>setbikes(data))
 
@@ -33,6 +35,9 @@ const AllProduct = () => {
     }
     
     console.log(specificBike)
+    if(loading){
+        return <Loading></Loading>
+    }
 
     return (
         <div>

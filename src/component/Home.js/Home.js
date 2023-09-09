@@ -10,7 +10,7 @@ const Home = () => {
     const {search}=useContext(AuthContext)
     const [products,setProducts]=useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/product?search=${search}`)
+        fetch(`https://cycal-server-akahad1.vercel.app/product?search=${search}`)
         .then(res=>res.json())
         .then(data=>setProducts(data))
     },[search])
@@ -19,9 +19,9 @@ const Home = () => {
     return (
         <div>
             <Banner1></Banner1>
-            <div className='mt-32 mb-16'>
+            <div className='mt-32 mb-16 '>
                 <span className='text-3xl flex justify-center font-style  text-primary'>Our Products</span>
-                <span className='flex text-primary font-style mt-3 justify-center'>Our website has products from various companies.</span>
+                <span className='flex text-primary font-style mt-3 justify-center text-center '>Our website has products from various companies.</span>
             </div >
            
            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:ml-16 md:ml-2  '>

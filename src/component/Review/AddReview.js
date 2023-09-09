@@ -30,7 +30,7 @@ const AddReview = ({id,reviews,setReviws}) => {
         rating:ratings,
         Comment,
       }
-      fetch('http://localhost:5000/reviews',{
+      fetch('https://cycal-server-akahad1.vercel.app/reviews',{
             method:"POST",
             headers:{
                 "content-type" : 'application/json'

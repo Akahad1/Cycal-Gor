@@ -34,7 +34,7 @@ const OderModer = ({Subtotal,DeliveryFree,Total,name,img,category,price}) => {
         category,
         price
     }
-    fetch('http://localhost:5000/order',{
+    fetch('https://cycal-server-akahad1.vercel.app/order',{
             method:"POST",
             headers:{
                 "content-type" : 'application/json'
